@@ -19,9 +19,8 @@ def read_portfolio(filename):
 
         for row in rows:
             stock = {
-                "name": row[0],  # should be row[0]
-                "shares": int(row[1]),
-                "price": float(row[2]),
+                "name": row[1] # suspicious?
+                 ,"shares": int(row[1]),  "price": float(row[2]),
             }
             portfolio.append(stock)
 
@@ -34,13 +33,9 @@ def read_prices(filename):
     with open(filename) as f:
         rows = csv.reader(f  )
         for row in rows:
-
-            try:
                 parsed_price = float(row[1]   )
                 output[row[0]] = parsed_price
-            except ValueError:
-                print(f"ah confusing one on row {row[0]}")
-                pass
+
 
     return output
 
@@ -48,7 +43,7 @@ def read_prices(filename):
 if __name__ == "__main__":
 
     portfolio = read_portfolio("./Data/portfolio.csv")
-    prices = read_prices("./Data/prices2.csv")  # try prices2
+    prices = read_prices("./Data/prices.csv")  # try prices2
 
 
 
@@ -57,7 +52,7 @@ if __name__ == "__main__":
 
 
     for s in portfolio:
-        total_cost += s["shares"] * s["price"]  # should be s['shares']
+        total_cost += s["share"] * s["price"]
 
     print("Total cost", total_cost)
 
@@ -66,7 +61,7 @@ if __name__ == "__main__":
     total_value =    0.0
     for s in portfolio:
 
-        total_value += s[  "shares"] * prices[s["name"]]
+        total_value += s[  "share"] * prices[s["name"]]
 
-    print("Current value", total_value)
-    print("Gain", total_value - total_cost)
+    print("Current value", total_value  )
+    print("Gain", total_value -  total_cost)

@@ -1,3 +1,4 @@
+"Stock", "Price", "bad_column"
 "AA",9.22
 "AXP",24.85
 "BA",44.85
@@ -18,7 +19,7 @@
 "KFT",26.11
 "KO",49.16
 "MCD",58.99
-"MMM",57.10
+"MMM",57.10, "blah_blah"
 "MRK",27.58
 "MSFT",20.89
 "PFE",15.19
